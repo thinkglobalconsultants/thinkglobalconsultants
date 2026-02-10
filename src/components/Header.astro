@@ -17,27 +17,20 @@ const pathname = rmTrailingSlash(Astro.url.pathname);
 ---
 
 <header x-data="{ open: false }" @keydown.window.escape="open = false">
-  <div class="h-24 bg-white shadow-sm fixed top-0 inset-x-0 z-55">
+  <div class="fixed inset-x-0 top-0 z-50 h-24 bg-white shadow-sm">
     <nav class="flex items-center justify-between" aria-label="Global">
       <!-- LOGO -->
-      <a
-        href="/"
-        class="fixed top-6 left-6 z-60 -m-1.5 p-1.5 flex items-center"
-      >
-        <Image
-          src={logoImagen}
-          class="w-14 h-auto"
-          alt="Missionary Tech Support Logo"
-        />
+      <a href="/" class="fixed left-6 top-6 z-[60] -m-1.5 flex items-center p-1.5">
+        <Image src={logoImagen} class="h-auto w-14" alt="Missionary Tech Support Logo" />
       </a>
 
-      <!-- Aqui se controla el menu del sitio -->
+      <!-- Toggle mobile -->
       <button
-        class="lg:hidden fixed top-6 right-6 z-60 size-10 flex items-center justify-center"
+        class="fixed right-6 top-6 z-[60] flex size-10 items-center justify-center lg:hidden"
         @click="open = !open"
         aria-label="Toggle menu"
       >
-        <!-- Esto muestra el icono de tipo Hamburguesa -->
+        <!-- Hamburger -->
         <svg
           x-show="!open"
           x-transition
@@ -47,12 +40,10 @@ const pathname = rmTrailingSlash(Astro.url.pathname);
           stroke-width="1.5"
           stroke="currentColor"
         >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
         </svg>
-        <!-- Esto muestra el icono de tipo  X -->
+
+        <!-- X -->
         <svg
           x-show="open"
           x-effect="document.body.classList.toggle('overflow-hidden', open)"
@@ -63,61 +54,177 @@ const pathname = rmTrailingSlash(Astro.url.pathname);
           stroke-width="2"
           stroke="currentColor"
         >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M6 18L18 6M6 6l12 12"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
 
       <!-- MENÚ DESKTOP -->
-      <div
-        class="hidden lg:flex absolute inset-x-0 top-0 h-24 items-center justify-center gap-x-12"
-      >
-        {
-          menuMain.map((item) => (
-            <a
-              href={item.url}
-              class={`transition font-semibold hover:text-brand-green ${
-                pathname === item.url ? "menu-item-active" : ""
-              } ${
-                item.highlighted
-                  ? "rounded-full bg-[#014650] px-4 py-2.5 text-sm font-semibold text-white hover:bg-[#014650] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#014650]"
-                  : "text-gray-700"
-              }`}
-              target={item.highlighted ? `"_blank"` : ""}
-            >
-              {item.name}
-            </a>
-          ))
-        }
+      <div class="absolute inset-x-0 top-0 hidden h-24 items-center justify-center gap-x-12 lg:flex">
+        {(() => {
+          const normalize = (p) => (p.endsWith("/") && p !== "/" ? p.slice(0, -1) : p);
+          const currentPath = normalize(pathname);
+
+          return menuMain.map((item) => {
+            const isDropdown = !!item.items;
+
+            const isDropdownActive = item.items?.some((sub) => {
+              const subPath = normalize(sub.url);
+              return currentPath === subPath || currentPath.startsWith(subPath + "/");
+            });
+
+            if (isDropdown) {
+              return (
+                <div class="group relative" key={item.name}>
+                  <button
+                    type="button"
+                    class={`relative inline-flex items-center gap-2 font-semibold transition ${
+                      isDropdownActive ? "text-brand-green" : "text-gray-700 hover:text-brand-green"
+                    }`}
+                    aria-haspopup="true"
+                  >
+                    <span>{item.name}</span>
+
+                    {/* Flecha */}
+                    <svg
+                      class={`h-4 w-4 transition-transform duration-200 group-hover:rotate-180 ${
+                        isDropdownActive ? "text-brand-green" : ""
+                      }`}
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94l3.71-3.71a.75.75 0 1 1 1.06 1.06l-4.24 4.24a.75.75 0 0 1-1.06 0L5.21 8.29a.75.75 0 0 1 .02-1.08z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+
+                    {/* Línea inferior */}
+                    <span
+                      class={`pointer-events-none absolute left-0 -bottom-2 h-[2px] w-full origin-left bg-brand-green transition-transform duration-200 ${
+                        isDropdownActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                      }`}
+                    ></span>
+                  </button>
+
+                  <ul class="absolute left-0 mt-3 hidden w-64 rounded-xl border border-gray-200 bg-white p-2 shadow-sm group-hover:block">
+                    {item.items.map((sub) => {
+                      const subPath = normalize(sub.url);
+                      const subActive = currentPath === subPath || currentPath.startsWith(subPath + "/");
+
+                      return (
+                        <li key={sub.url}>
+                          <a
+                            href={sub.url}
+                            class={`block rounded-lg px-3 py-2 text-sm hover:bg-gray-50 ${
+                              subActive ? "font-semibold text-brand-green" : "text-gray-700"
+                            }`}
+                          >
+                            {sub.name}
+                          </a>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              );
+            }
+
+            // Link normal
+            return (
+              <a
+                key={item.url}
+                href={item.url}
+                class={`transition font-semibold hover:text-brand-green ${
+                  normalize(item.url) === currentPath ? "menu-item-active" : ""
+                } ${
+                  item.highlighted
+                    ? "rounded-full bg-[#014650] px-4 py-2.5 text-sm font-semibold text-white hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#014650]"
+                    : "text-gray-700"
+                }`}
+                target={item.highlighted ? "_blank" : undefined}
+                rel={item.highlighted ? "noreferrer" : undefined}
+              >
+                {item.name}
+              </a>
+            );
+          });
+        })()}
       </div>
     </nav>
 
     <!-- MENÚ MOBILE -->
-    <div
-      x-show="open"
-      x-transition
-      x-cloak
-      class="lg:hidden fixed inset-0 z-50 bg-white px-8 py-6"
-    >
-      <div class="mt-20 space-y-6 text-center">
-        {
-          menuMain.map((item) => (
-            <a
-              href={item.url}
-              @click="open = false"
-              class={`block text-3xl font-semibold ${pathname === item.url ? "menu-item-active" : ""} ${
-                item.highlighted
-                  ? "rounded-full bg-[#014650] px-4 py-2.5 text-sm font-semibold text-white hover:bg-[#014650] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#014650]"
-                  : "text-gray-700"
-              }`}
-              target={item.highlighted ? `"_blank"` : ""}
-            >
-              {item.name}
-            </a>
-          ))
-        }
+    <div x-show="open" x-transition.opacity x-cloak class="fixed inset-0 z-50 bg-white px-8 py-6 lg:hidden">
+      <div class="mt-20 space-y-3">
+        {(() => {
+          const normalize = (p) => (p.endsWith("/") && p !== "/" ? p.slice(0, -1) : p);
+          const currentPath = normalize(pathname);
+
+          return menuMain.map((item) =>
+            item.items ? (
+              <div class="border-b border-gray-100 py-2" x-data="{ ddOpen: false }" key={item.name}>
+                <button
+                  type="button"
+                  class="flex w-full items-center justify-between py-3 text-2xl font-semibold text-gray-700 hover:text-brand-green"
+                  @click="ddOpen = !ddOpen"
+                  :aria-expanded="ddOpen.toString()"
+                >
+                  <span>{item.name}</span>
+
+                  <svg
+                    class="h-6 w-6 transition-transform duration-200"
+                    :class="ddOpen ? 'rotate-180' : ''"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+
+                <div x-show="ddOpen" x-transition class="mt-2 space-y-2 pb-3">
+                  {item.items.map((sub) => {
+                    const subActive =
+                      currentPath === normalize(sub.url) || currentPath.startsWith(normalize(sub.url) + "/");
+
+                    return (
+                      <a
+                        key={sub.url}
+                        href={sub.url}
+                        @click="open = false"
+                        class={`block rounded-lg px-3 py-2 text-lg font-semibold hover:bg-gray-50 ${
+                          subActive ? "text-brand-green" : "text-gray-700"
+                        }`}
+                      >
+                        {sub.name}
+                      </a>
+                    );
+                  })}
+                </div>
+              </div>
+            ) : (
+              <a
+                key={item.url}
+                href={item.url}
+                @click="open = false"
+                class={`block py-3 text-2xl font-semibold transition hover:text-brand-green ${
+                  normalize(item.url) === currentPath ? "menu-item-active" : ""
+                } ${
+                  item.highlighted
+                    ? "mt-4 w-fit rounded-full bg-[#014650] px-6 py-3 text-base font-semibold text-white hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#014650]"
+                    : "text-gray-700"
+                }`}
+                target={item.highlighted ? "_blank" : undefined}
+                rel={item.highlighted ? "noreferrer" : undefined}
+              >
+                {item.name}
+              </a>
+            )
+          );
+        })()}
       </div>
     </div>
   </div>

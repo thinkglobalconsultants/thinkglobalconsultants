@@ -11,13 +11,19 @@ export const menuMain = [
     },
     {
         name: "Our Services",
-        url: "/our-services",
-        highlighted: false,
+        items: [
+            {name:"PRISM", url:"/prism", highlighted: false,},
+            {name:"CQ for Schools", url:"/cq-for-schools", highlighted: false,},
+        ],
+        
     },
     {
         name: "Our Customers",
-        url: "/customers",
-        highlighted: false,
+        items: [
+            {name:"Businesses/ Global Organizations", url:"/businesses-global-organizations", highlighted: false,},
+            {name:"International Schools", url:"/international-schools", highlighted: false,},
+            {name:"NGOs/ Nonprofits", url:"/ngos-nonprofits", highlighted: false,},
+        ],
     },
     {
         name: "Insights",
