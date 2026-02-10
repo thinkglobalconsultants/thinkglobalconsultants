@@ -2,6 +2,8 @@
 import Layout from '~/layouts/Layout.astro';
 import Heading from '~/components/Heading.astro';
 import Routingsections from '~/components/Routingsections.astro';
+import Containertwocolumns from '~/components/Containertwocolumns.astro';
+import Stepsection from '~/components/Stepsection.astro';
 
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
@@ -10,6 +12,8 @@ import Routingsections from '~/components/Routingsections.astro';
 
 <Layout>
 	<Heading />
-
 	<Routingsections />
+	<Containertwocolumns>
+		<Stepsection />
+	</Containertwocolumns>
 </Layout>
