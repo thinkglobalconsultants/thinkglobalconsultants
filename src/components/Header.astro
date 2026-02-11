@@ -266,7 +266,7 @@ const customersActive =
 
         <!-- Request Consultation (button) -->
         <a
-          href="/request-consultation"
+          href="/contact#schedule-meeting"
           class="rounded-full bg-[#014650] px-4 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#014650]"
           rel="noreferrer"
         >
@@ -325,13 +325,25 @@ const customersActive =
 
           <div x-show="ddOpen" x-transition class="mt-2 space-y-2 pb-3">
             <a
-              href="/our-services/prism-cq-for-school"
+              href="/our-services/prism"
               @click="open = false"
               class={`block rounded-lg px-3 py-2 text-lg font-semibold hover:bg-gray-50 ${
                 isActivePrefix("/our-services/prism-cq-for-school") ? "text-brand-green" : "text-gray-700"
               }`}
             >
-              PRISM &amp; CQ for School
+              PRISM
+            </a>
+          </div>
+
+          <div x-show="ddOpen" x-transition class="mt-2 space-y-2 pb-3">
+            <a
+              href="/our-services/cq-for-school"
+              @click="open = false"
+              class={`block rounded-lg px-3 py-2 text-lg font-semibold hover:bg-gray-50 ${
+                isActivePrefix("/our-services/prism-cq-for-school") ? "text-brand-green" : "text-gray-700"
+              }`}
+            >
+              CQ for School
             </a>
           </div>
         </div>
@@ -415,7 +427,7 @@ const customersActive =
         </a>
 
         <a
-          href="/request-consultation"
+          href="/contact#schedule-meeting"
           @click="open = false"
           class="mt-4 w-fit rounded-full bg-[#014650] px-6 py-3 text-base font-semibold text-white transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#014650]"
           rel="noreferrer"
