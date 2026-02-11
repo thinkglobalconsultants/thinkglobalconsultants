@@ -1,33 +1,58 @@
 ---
 import Layout from "~/layouts/Layout.astro";
 import SectionAbout from "~/components/SectionAbout.astro";
-import glassPhoto from '~/assets/about/Glass-Photo.webp';
-import SectionThreeCols from "~/components/SectionThreeCols.astro";
-import MeetOurTeam from "~/components/MeetOurTeam.astro";
-import SectionArticle from "~/components/SectionArticle.astro";
-import SectionCallAction from "~/components/SectionCallAction.astro";
-
-import {Image} from 'astro:assets';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import glassPhoto from "~/assets/about/Glass-Photo.webp";
+import { Image } from "astro:assets";
+import Button from "~/components/Button.astro";
+import SectionTwoCols from "~/components/SectionTwoCols.astro";
 ---
 
 <Layout>
-    <SectionAbout title="We help leadership teams operate with clarity, alignment, and cultural intelligence." description="Through our Prism Service for organizations and CQ for Schools program, we equip leaders to navigate cultural complexity with confidence and measurable results.">
-        <div slot="image" class="aspect-video w-full overflow-hidden rounded-2xl"> 
-        <Image slot="image" width="2432" height="1000" src={glassPhoto} alt="Product screenshot" class="w-full h-full object-cover object-bottom  rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-228 md:-ml-4 lg:ml-0" />
-        </div>
-    </SectionAbout>
+    <SectionAbout
+    title="Equip your school community to thrive across cultures."
+    description="We help international schools build cultural intelligence into leadership, teaching, and community life — so every student, teacher, and family feels they belong."
+  >
+    <div slot="details" class="mt-6">
+      <Button
+        link="/our-services/cq-for-school"
+        class="mt-4 inline-block rounded-lg bg-[#014650] px-6 py-3 text-sm font-semibold text-white shadow-md hover:bg-[#013a42] focus:outline-none focus:ring-2 focus:ring-[#014650] focus:ring-offset-2"
+      >
+        Explore CQ for School
+      </Button>
+    </div>
+    <div slot="image" class="aspect-video w-full overflow-hidden rounded-2xl">
+      <Image
+        slot="image"
+        width="2432"
+        height="1000"
+        src={glassPhoto}
+        alt="Product screenshot"
+        class="w-full h-full object-cover object-bottom rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-228 md:-ml-4 lg:ml-0"
+      />
+    </div>
+  </SectionAbout>
 
-    <SectionThreeCols header="Our Story" title1="What We Saw" title2="The Gap" title3="What We Built" description1="Leadership teams struggling with misalignment and cultural friction -- costing organizations trust, talent, and results." description2="Existing approaches were too theoretical, lacked measurement, and offered no follow-through. Leaders were left without practical tools." description3="A measurable, applied framework that equips leaders to lead across difference -- with accountability and real behavior change."/>
+  <SectionTwoCols> 
+    <div slot="left">
+      <h3 class="text-2xl font-semibold text-gray-900 mb-4">Their Reality</h3>
+      <ul class="list-decimal pl-6 space-y-2 text-gray-700">
+        <li>Students, families, and staff from dozens of cultural backgrounds</li>
+        <li>Teachers navigating identity, language, and learning differences daily</li>
+        <li>Leadership teams managing expectations across cultural norms</li>
+        <li>Community tensions that surface during transitions and change</li>
+      </ul>
+    </div>
 
-    <MeetOurTeam name1="Leslie Alexander" role1="Co-Founder / CEO" description1="Toronto, Canada" name2="Michael Foster" role2="Co-Founder / CTO" description2="Glasgow, Scotland" name3="Dries Vincent" role3="Business Relations" description3="Niagara Falls, Canada" name4="Lindsay Walton" role4="Front-end Developer" description4="London, England"/>
+    <div slot="right">
+      <h3 class="text-2xl font-semibold text-gray-900 mb-4">What's at Stake</h3>
+      <ol class="list-decimal pl-6 space-y-2 text-gray-700">
+        <li>Student wellbeing and sense of belonging</li>
+        <li>Teacher burnout and retention challenges</li>
+        <li>Parent trust and school community cohesion</li>
+        <li>Missed opportunities for truly global education</li>
+      </ol>
+    </div>
 
-    <SectionArticle title="What Makes Us Different" subtitle1="Evidence-Based" subtitle2="Measurable Outcomes" subtitle3="Applied Behavior Change" description1="Built on validated Prism + CQ frameworks, not theory alone." description2="Every engagement is tracked with pre/post assessments and clear KPIs." description3="Coaching that sticks -- focused on real behavior shifts, not just awareness."/>
-
-    <SectionThreeCols header="Who We Work With" title1="Businesses / Global Organizations" title2="International Schools" title3="NGOs / Nonprofits" description1="Leadership teams navigating cultural complexity at scale." description2="School communities building CQ across teachers, staff, and parents." description3="Mission-driven teams working across borders and cultures."/>
-
-    <SectionCallAction title="Ready to Get Started?" paragraph="Explore our services or get in touch to see how we can help your team." button1="Learn How Prism Works" button2="Request Consultation" />
+  </SectionTwoCols>
 
 </Layout>
