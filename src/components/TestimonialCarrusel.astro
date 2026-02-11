@@ -1,7 +1,8 @@
 ---
 import Button from './Button.astro';
+const {id} = Astro.props;
 ---
-<section class="bg-white py-24 sm:py-32 mb-5">
+<section class="bg-white py-24 sm:py-32 mb-5" id={id}>
   <div class="mx-auto max-w-7xl px-6 lg:px-8">
     <article class="mx-auto max-w-2xl text-center">
       <h2 class="text-4xl font-semibold tracking-tight text-balance text-[#3C788C] sm:text-5xl">Testimonials</h2>
@@ -97,6 +98,6 @@ import Button from './Button.astro';
     </div>
   </div>
   <div class="flex items-center justify-center">
-      <Button>Request Consultation</Button>
+      <Button link="/contact#schedule-meeting">Request Consultation</Button>
   </div>
 </section>
