@@ -38,18 +38,18 @@ export const socialMedia = {
 		icon: "facebook",
 	},
 	twitter: {
-		url: "https://twitter.com",
-		label: "Twitter",
-		icon: "twitter",
+		url: "https://x.com/ThinkGlobalCo",
+		label: "x",
+		icon: "x",
 	},
 	instagram: {
-		url: "https://instagram.com",
+		url: "https://www.instagram.com/ThinkGlobalConsultants",
 		label: "Instagram",
 		icon: "instagram",
 	},
 	youtube: {
-		url: "https://youtube.com",
-		label: "YouTube",
-		icon: "youtube",
+		url: "https://www.linkedin.com/company/think-global-consultants-llc/",
+		label: "LinkedIn",
+		icon: "linkedIn",
 	},
 };

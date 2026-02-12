@@ -7,6 +7,7 @@ import Button from "~/components/Button.astro";
 import SectionTwoCols from "~/components/SectionTwoCols.astro";
 import RoutingSectionsWithFourBoxes from "~/components/RoutingsectionsWithFourBoxes.astro";
 import FinalCTA from "~/components/FinalCTA.astro";
+import ButtonSquare from "~/components/ButtonSquare.astro";
 ---
 
 <Layout>
@@ -15,12 +16,12 @@ import FinalCTA from "~/components/FinalCTA.astro";
     description="We help international schools build cultural intelligence into leadership, teaching, and community life — so every student, teacher, and family feels they belong."
   >
     <div slot="details" class="mt-6">
-      <Button
+      <ButtonSquare
         link="/our-services/cq-for-school"
-        class="mt-4 inline-block rounded-lg bg-[#014650] px-6 py-3 text-sm font-semibold text-white shadow-md hover:bg-[#013a42] focus:outline-none focus:ring-2 focus:ring-[#014650] focus:ring-offset-2"
+        label="Explore CQ for School"
       >
-        Explore CQ for School
-      </Button>
+        
+      </ButtonSquare>
     </div>
     <div slot="image" class="aspect-video w-full overflow-hidden rounded-2xl">
       <Image

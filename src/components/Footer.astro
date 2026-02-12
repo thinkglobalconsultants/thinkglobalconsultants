@@ -1,31 +1,14 @@
 ---
-import logoImagen from "~/assets/logos/bulb.png";
-import { Image } from "astro:assets";
-import { menuMain } from "~/data/menus";
 const currentYear = new Date().getFullYear();
-import { siteName, firstTitle, secondTitle } from "~/data/config";
+import { siteName } from "~/data/config";
 ---
 
 <footer class="bg-white">
-  <div class="mx-auto max-w-7xl overflow-hidden px-6 py-20 sm:py-24 lg:px-8">
-    <nav
-      aria-label="Footer"
-      class="-mb-6 flex flex-wrap justify-center gap-x-12 gap-y-3 text-sm/6"
-    >
-      {
-        menuMain.map((item) => (
-          <a
-            href={item.url}
-            class="text-gray-600 hover:text-gray-900"
-            target={item.highlighted ? `"_blank"` : ""}
-          >
-            {item.name}
-          </a>
-        ))
-      }
-    </nav>
-    <div class="mt-16 flex justify-center gap-x-10">
-      <a href="#" class="text-gray-600 hover:text-gray-800">
+  <div
+    class="mx-auto max-w-7xl px-6 py-12 md:flex md:items-center md:justify-between lg:px-8"
+  >
+    <div class="flex justify-center gap-x-6 md:order-2">
+      <a href="#" class="hidden text-gray-600 hover:text-gray-800">
         <span class="sr-only">Facebook</span>
         <svg
           viewBox="0 0 24 24"
@@ -39,7 +22,10 @@ import { siteName, firstTitle, secondTitle } from "~/data/config";
             fill-rule="evenodd"></path>
         </svg>
       </a>
-      <a href="#" class="text-gray-600 hover:text-gray-800">
+      <a
+        href="https://www.instagram.com/ThinkGlobalConsultants"
+        class="text-gray-600 hover:text-gray-800"
+      >
         <span class="sr-only">Instagram</span>
         <svg
           viewBox="0 0 24 24"
@@ -53,7 +39,10 @@ import { siteName, firstTitle, secondTitle } from "~/data/config";
             fill-rule="evenodd"></path>
         </svg>
       </a>
-      <a href="#" class="text-gray-600 hover:text-gray-800">
+      <a
+        href="https://x.com/ThinkGlobalCo"
+        class="text-gray-600 hover:text-gray-800"
+      >
         <span class="sr-only">X</span>
         <svg
           viewBox="0 0 24 24"
@@ -66,22 +55,11 @@ import { siteName, firstTitle, secondTitle } from "~/data/config";
           ></path>
         </svg>
       </a>
-
-      <a href="#" class="text-gray-600 hover:text-gray-800">
-        <span class="sr-only">LinkedIn</span>
-        <svg
-          viewBox="0 0 24 24"
-          fill="currentColor"
-          aria-hidden="true"
-          class="size-6"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" aria-hidden="true" class="h-6 w-6" fill="currentColor">
-            <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/>
-          </svg>
-      </a>
-
-      <a href="#" class="text-gray-600 hover:text-gray-800">
-        <span class="sr-only">YouTube</span>
+      <a
+        href="https://www.linkedin.com/company/think-global-consultants-llc/"
+        class="text-gray-600 hover:text-gray-800"
+      >
+        <span class="sr-only">Linkedln</span>
         <svg
           viewBox="0 0 24 24"
           fill="currentColor"
@@ -89,14 +67,16 @@ import { siteName, firstTitle, secondTitle } from "~/data/config";
           class="size-6"
         >
           <path
-            d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.746 22 12 22 12s0 3.255-.418 4.814a2.504 2.504 0 0 1-1.768 1.768c-1.56.419-7.814.419-7.814.419s-6.255 0-7.814-.419a2.505 2.505 0 0 1-1.768-1.768C2 15.255 2 12 2 12s0-3.255.417-4.814a2.507 2.507 0 0 1 1.768-1.768C5.744 5 11.998 5 11.998 5s6.255 0 7.814.418ZM15.194 12 10 15V9l5.194 3Z"
-            clip-rule="evenodd"
-            fill-rule="evenodd"></path>
+            d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.11 1 2.48 1s2.5 1.12 2.5 2.5zM0.5 8h4V23h-4V8zM8.5 8h3.8v2.05h.05c.53-1 1.84-2.05 3.79-2.05 4.06 0 4.81 2.67 4.81 6.14V23h-4v-7.78c0-1.86-.03-4.26-2.6-4.26-2.6 0-3 2.03-3 4.12V23h-4V8z"
+          ></path>
         </svg>
       </a>
     </div>
-    <p class="mt-10 text-center text-sm/6 text-gray-600">
-      &copy; {new Date().getFullYear()} Think Global Consultants, Inc. All rights reserved. 
+
+    <p class="mt-8 text-center text-sm/6 text-gray-600 md:order-1 md:mt-0">
+      Copyright &copy {currentYear}
+      {siteName}. All rights reserved.
     </p>
+
   </div>
 </footer>

@@ -13,6 +13,7 @@ import BoxesImages from "~/components/BoxesImages.astro";
 
 //icon
 import CheckIcon from "~/assets/icons/check-white.svg";
+import FinalCTADinamic from "~/components/FinalCTADinamic.astro";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -20,13 +21,13 @@ import CheckIcon from "~/assets/icons/check-white.svg";
 
 <Layout>
   <SectionAbout
-    title="Build high-performing teams across cultures, markets, and borders."
-    description="We help global organizations turn cultural complexity into clarity, trust, and measurable performance."
+    title="Cultural intelligence for mission-driven organizations working across borders."
+    description="We help NGOs and nonprofits collaborate effectively across cultures while staying true to their mission."
   >
     <div slot="details" class="mt-6">
       <ButtonSquare
         link="/contact#schedule-meeting"
-        label="Schedule a Discovery Call"
+        label="Talk to an Advisor"
       />
     </div>
     <div slot="image" class="aspect-video w-full overflow-hidden rounded-2xl">
@@ -45,27 +46,27 @@ import CheckIcon from "~/assets/icons/check-white.svg";
     <div slot="left">
       <h3 class="text-2xl font-semibold text-gray-900 mb-4">Their Reality</h3>
       <ul class="list-decimal pl-6 space-y-2 text-gray-700">
-        <li>Teams spread across regions, time zones, and cultural norms</li>
-        <li>Misalignment between headquarters and local markets</li>
-        <li>Strong talent — but collaboration breaks down under pressure</li>
-        <li>DEI initiatives that feel symbolic instead of operational</li>
+        <li>Working across cultures, languages, and power dynamics</li>
+        <li>Tension between global strategy and local realities</li>
+        <li>Well-meaning initiatives that don't always land as intended</li>
+        <li>Limited resources, high expectations</li>
       </ul>
     </div>
 
     <div slot="right">
       <h3 class="text-2xl font-semibold text-gray-900 mb-4">What's at Stake</h3>
       <ol class="list-decimal pl-6 space-y-2 text-gray-700">
-        <li>Missed growth in new markets</li>
-        <li>Friction inside leadership teams</li>
-        <li>Slower execution and decision-making</li>
-        <li>Costly talent loss and disengagement</li>
+        <li>Community trust and legitimacy</li>
+        <li>Program effectiveness</li>
+        <li>Staff burnout and turnover</li>
+        <li>Long-term impact and sustainability</li>
       </ol>
     </div>
   </SectionTwoCols>
 
   <SectionFeature
     title="How We Help"
-    description="We work with leadership teams using our Prism framework, a practical model for navigating cultural differences in real business decisions."
+    description="Through our Prism consulting approach, we support NGOs in navigating cultural complexity with humility and effectiveness."
   >
     <div slot="bulletpoint">
       <div class="relative pl-9">
@@ -84,7 +85,7 @@ import CheckIcon from "~/assets/icons/check-white.svg";
             ></path>
           </svg>
 
-          Cultural intelligence for leaders
+          Partner and community relationships
         </dt>
       </div>
 
@@ -104,7 +105,7 @@ import CheckIcon from "~/assets/icons/check-white.svg";
             ></path>
           </svg>
 
-          Decision-making across value systems
+          Cross-cultural leadership
         </dt>
       </div>
 
@@ -124,7 +125,7 @@ import CheckIcon from "~/assets/icons/check-white.svg";
             ></path>
           </svg>
 
-          Communication under ambiguity
+          Ethical decision-making
         </dt>
       </div>
 
@@ -144,9 +145,13 @@ import CheckIcon from "~/assets/icons/check-white.svg";
             ></path>
           </svg>
 
-          Building shared norms without forcing uniformity
+          Sustainable collaboration models
         </dt>
       </div>
+      <ButtonSquare
+      link="/our-services/prism"
+      label="Learn more about the Prism Service"
+      class="mt-10"/>
     </div>
 
     <div slot="image">
@@ -163,16 +168,15 @@ import CheckIcon from "~/assets/icons/check-white.svg";
   </SectionFeature>
 
   <RoutingsectionsWithFourBoxesDinamic
-    title="Our Approach"
-    paragraph="We help global organizations build cultural intelligence in their leadership teams and across their organizations."
+    title="Outcomes You Can Expect"
   >
     <div slot="boxes" class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-4">
-        <BoxesImages icon={CheckIcon} title="Faster alignment across regions"/>
-        <BoxesImages icon={CheckIcon} title="Leaders confident navigating cultural tension" />
-        <BoxesImages icon={CheckIcon} title="Fewer misunderstandings, clearer accountability" />
-        <BoxesImages icon={CheckIcon} title="Culture as a performance advantage — not a risk" />
+        <BoxesImages icon={CheckIcon} title="Stronger local partnerships"/>
+        <BoxesImages icon={CheckIcon} title="Fewer cultural missteps" />
+        <BoxesImages icon={CheckIcon} title="Clearer internal alignment" />
+        <BoxesImages icon={CheckIcon} title="Greater mission impact with less friction" />
     </div>
 </RoutingsectionsWithFourBoxesDinamic>
 
-    <FinalCTA />
+    <FinalCTADinamic title="Let's strengthen your impact — without losing your values." paragraph="Start a conversation." label="Talk to an Advisor" />
 </Layout>
