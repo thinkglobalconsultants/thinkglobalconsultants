@@ -1,0 +1,25 @@
+---
+const {title, description} = Astro.props;
+---
+<section class="overflow-hidden bg-white py-24 sm:py-10">
+  <div class="mx-auto max-w-7xl md:px-6 lg:px-8">
+    <div class="grid grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:grid-cols-2 lg:items-start">
+      <div class="px-6 lg:px-0 lg:pt-20 lg:pr-4">
+        <div class="mx-auto max-w-2xl lg:mx-0 lg:max-w-lg">
+          <h2 class="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">{title}</h2>
+          <p class="mt-6 text-lg/8 text-gray-600">{description}</p>
+          <dl class="mt-10 max-w-xl space-y-8 text-base/7 text-gray-600 lg:max-w-none">
+            <slot name="bulletpoint"/>
+          </dl>
+        </div>
+      </div>
+      <div class="sm:px-6 lg:px-0">
+        <div class="relative isolate overflow-hidden bg-indigo-500 px-6 pt-8 sm:mx-auto sm:max-w-2xl sm:rounded-3xl sm:pt-16 sm:pr-0 sm:pl-16 lg:mx-0 lg:max-w-none">
+          <div aria-hidden="true" class="absolute -inset-y-px -left-3 -z-10 w-full origin-bottom-left skew-x-[-30deg] bg-indigo-100 opacity-20 ring-1 ring-white ring-inset"></div>
+          <slot name="image"/>
+          <div aria-hidden="true" class="pointer-events-none absolute inset-0 ring-1 ring-black/10 ring-inset sm:rounded-3xl"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

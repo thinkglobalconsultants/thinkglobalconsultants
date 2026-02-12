@@ -7,6 +7,7 @@ import { Image } from "astro:assets";
 import HorizontalTimeline from "~/components/HorizontalTimeline.astro";
 import SimpleSection from "~/components/SimpleSection.astro";
 import RoutingsectionsNoButton from "~/components/RoutingsectionsNoButton.astro";
+import ButtonSquare from "~/components/ButtonSquare.astro";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -32,12 +33,7 @@ import RoutingsectionsNoButton from "~/components/RoutingsectionsNoButton.astro"
           shaped by diverse cultural backgrounds
         </li>
       </ul>
-      <a
-        href="/contact#schedule-meeting"
-        class="mt-4 inline-block rounded-lg bg-[#014650] px-6 py-3 text-sm font-semibold text-white shadow-md hover:bg-[#013a42] focus:outline-none focus:ring-2 focus:ring-[#014650] focus:ring-offset-2"
-      >
-        Request a Consultation
-      </a>
+      <ButtonSquare link="/contact#schedule-meeting" label="Request a Consultation"/>
     </div>
     <div slot="image" class="h-110 w-full overflow-hidden rounded-2xl">
       <Image
