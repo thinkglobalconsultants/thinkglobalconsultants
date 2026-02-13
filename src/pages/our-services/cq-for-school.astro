@@ -1,13 +1,12 @@
 ---
 import Layout from "~/layouts/Layout.astro";
 import SectionAbout from "~/components/SectionAbout.astro";
-import glassPhoto from "~/assets/about/Glass-Photo.webp";
+import CQforSchool from "~/assets/cqforschool/Globe-CQ-for-Schools-Photo.webp";
 
 import { Image } from "astro:assets";
 import TabVertical from "~/components/TabVertical.astro";
 import SimpleSection from "~/components/SimpleSection.astro";
 import ButtonSquare from "~/components/ButtonSquare.astro";
-import SectionLogos from "~/components/SectionLogos.astro";
 import StepJourneySection from "~/components/StepJourneySection.astro";
 import SectionCallAction from "~/components/SectionCallAction.astro";
 
@@ -37,14 +36,12 @@ import SectionCallAction from "~/components/SectionCallAction.astro";
         slot="image"
         width="2432"
         height="1000"
-        src={glassPhoto}
+        src={CQforSchool}
         alt="Product screenshot"
-        class="w-full h-full object-cover object-bottom rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-228 md:-ml-4 lg:ml-0"
+        class="w-full h-full object-cover object-center rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-228 md:-ml-4 lg:ml-0"
       />
     </div>
   </SectionAbout>
-
-  <SectionLogos />
 
   <SimpleSection>
     <StepJourneySection />
