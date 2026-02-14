@@ -13,6 +13,7 @@ import BoxesImages from "~/components/BoxesImages.astro";
 //icon
 import CheckIcon from "~/assets/Icons/check-white.svg";
 import FinalCTADinamic from "~/components/FinalCTADinamic.astro";
+import ngoHowtoHelp from "~/assets/ngo/how.webp";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -155,12 +156,12 @@ import FinalCTADinamic from "~/components/FinalCTADinamic.astro";
 
     <div slot="image">
       <div class="mx-auto max-w-2xl sm:mx-0 sm:max-w-none">
-        <img
+        <Image
           width="2432"
           height="1442"
-          src="https://tailwindcss.com/plus-assets/img/component-images/project-app-screenshot.png"
+          src={ngoHowtoHelp}
           alt="Product screenshot"
-          class="-mb-12 w-228 max-w-none rounded-tl-xl bg-gray-800 ring-1 ring-white/10"
+          class="h-130 w-full object-cover overflow-hidden rounded-2xl"
         />
       </div>
     </div>
