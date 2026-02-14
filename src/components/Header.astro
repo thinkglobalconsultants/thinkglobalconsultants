@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import logoImagen from "~/assets/logos/bulb.png";
+import logoImagen from "~/assets/logos/TGC-logo.png";
 
 const rmTrailingSlash = (path: string): string =>
   path.endsWith("/") && path.length > 1 ? path.slice(0, -1) : path;
@@ -30,8 +30,8 @@ const customersActive =
   <div class="fixed inset-x-0 top-0 z-50 h-24 bg-white shadow-sm">
     <nav class="flex items-center justify-between" aria-label="Global">
       <!-- LOGO -->
-      <a href="/" class="fixed left-6 top-6 z-60 -m-1.5 flex items-center p-1.5">
-        <Image src={logoImagen} class="h-auto w-14" alt="Missionary Tech Support Logo" />
+      <a href="/" class="fixed left-5 top-2 z-60 -m-1.5 flex items-center p-1.5 lg:fixed lg:left-45 lg:top-2 lg:z-60 lg:-m-1.5 lg:flex lg:items-center lg:p-1.5  ">
+        <Image src={logoImagen} class="h-20 w-auto" alt="Think Global Consultants Logo" />
       </a>
 
       <!-- Toggle mobile -->
