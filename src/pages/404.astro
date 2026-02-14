@@ -1,6 +1,7 @@
 ---
 import Layout from "~/layouts/Layout.astro";
 import Section from "~/components/Section.astro";
+import Button from "~/components/Button.astro";
 ---
 
 <Layout
@@ -18,7 +19,7 @@ import Section from "~/components/Section.astro";
         You may have mistyped the address or the page may have moved.
       </p>
       <div class="mt-16">
-        <a href="/" class="button button-green">
+        <Button link="/">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
@@ -31,7 +32,7 @@ import Section from "~/components/Section.astro";
               clip-rule="evenodd"></path>
           </svg>
           Go back home
-        </a>
+        </Button>
       </div>
     </div>
   </Section>
