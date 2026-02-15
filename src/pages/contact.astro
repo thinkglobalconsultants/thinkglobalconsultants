@@ -7,6 +7,17 @@ import SimpleSection from "~/components/SimpleSection.astro";
 import SectionFrecuencyQuestions from "~/components/SectionFrecuencyQuestions.astro";
 import GridButton from "~/components/GridButton.astro";
 
+import {actions} from "astro:actions";
+import { isInputError } from "astro:actions";
+
+const result = Astro.getActionResult(actions.send);
+
+if (result?.data) {
+  return Astro.redirect("/")
+}
+
+const inputError = isInputError(result?.error) ? result.error.fields : {}
+
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
@@ -90,18 +101,20 @@ import GridButton from "~/components/GridButton.astro";
           class="bg-white px-6 py-16 lg:col-span-3 lg:px-8 lg:py-24 xl:pl-12"
         >
           <div class="mx-auto max-w-lg lg:max-w-none">
-            <form action="#" method="POST" class="grid grid-cols-1 gap-y-6">
+            <form action={actions.send} method="post" class="grid grid-cols-1 gap-y-6">
               <div>
-                <label for="full-name" class="sr-only">Name</label>
+                <label for="username" class="sr-only">Name</label>
                 <input
-                  id="name"
+                  id="username"
                   type="text"
-                  name="name"
+                  name="username"
                   placeholder="Full name"
-                  autocomplete="name"
+                  autocomplete="username"
                   class="block w-full rounded-md border border-gray-300 px-4 py-3 placeholder-gray-500 shadow-xs focus:border-[#014650] focus:ring-[#014650]"
+                  aria-describedby={inputError.username ? "name-error": undefined}
                   required
                 />
+                 {inputError.username && <p id="username-error">{inputError.username[0]}</p>}
               </div>
               <div>
                 <label for="organization" class="sr-only">Organization Name</label>
@@ -112,8 +125,10 @@ import GridButton from "~/components/GridButton.astro";
                   placeholder="Organization Name"
                   autocomplete="organization"
                   class="block w-full rounded-md border border-gray-300 px-4 py-3 placeholder-gray-500 shadow-xs focus:border-[#014650] focus:ring-[#014650]"
+                  aria-describedby={inputError.organization ? "organization-error": undefined}
                   required
                 />
+                {inputError.organization && <p id="organization-error">{inputError.organization[0]}</p>}
               </div>
 
               <div>
@@ -125,9 +140,12 @@ import GridButton from "~/components/GridButton.astro";
                   placeholder="Role"
                   autocomplete="role"
                   class="block w-full rounded-md border border-gray-300 px-4 py-3 placeholder-gray-500 shadow-xs focus:border-[#014650] focus:ring-[#014650]"
+                  aria-describedby={inputError.role ? "role-error": undefined}
                   required
                 />
+                {inputError.role && <p id="role-error">{inputError.role[0]}</p>}
               </div>
+
               <div>
                 <label for="email" class="sr-only">Email</label>
                 <input
@@ -137,22 +155,26 @@ import GridButton from "~/components/GridButton.astro";
                   placeholder="Email"
                   autocomplete="email"
                   class="block w-full rounded-md border border-gray-300 px-4 py-3 placeholder-gray-500 shadow-xs focus:border-[#014650] focus:ring-[#014650]"
+                  aria-describedby={inputError.email ? "email-error": undefined}
                   required
                 />
+                {inputError.email && <p id="email-error">{inputError.email[0]}</p>}
               </div>
 
               <div>
-                <label for="organization-type" class="sr-only">Organization Type</label>
+                <label for="organizationtype" class="sr-only">Organization Type</label>
                 <select
-                  id="organization-type"
-                  name="organization-type"
+                  id="organizationtype"
+                  name="organizationtype"
                   class="block w-full rounded-md border border-gray-300 px-4 py-3 placeholder-gray-500 shadow-xs focus:border-[#014650] focus:ring-[#014650]" required
+                  aria-describedby={inputError.organizationtype ? "organizationtype-error": undefined}
                 >
                   <option value="">Select Organization Type</option>
                   <option value="Business">Business</option>
                   <option value="School">School</option>
                   <option value="NGO/ Non-Profit">NGO/ Non-Profit</option>
                 </select>
+                {inputError.organizationtype && <p id="organizationtype-error">{inputError.organizationtype[0]}</p>}
               </div>
 
               <div>
@@ -163,8 +185,11 @@ import GridButton from "~/components/GridButton.astro";
                   rows="4"
                   placeholder="Message"
                   class="block w-full rounded-md border border-gray-300 px-4 py-3 placeholder-gray-500 shadow-xs focus:border-indigo-500 focus:ring-indigo-500" required
+                  aria-describedby={inputError.message ? "message-error": undefined}
                 ></textarea>
+                {inputError.message && <p id="message-error">{inputError.message[0]}</p>}
               </div>
+
               <div>
                 <button
                   type="submit"
@@ -172,6 +197,7 @@ import GridButton from "~/components/GridButton.astro";
                   >Submit</button
                 >
               </div>
+
             </form>
           </div>
         </div>

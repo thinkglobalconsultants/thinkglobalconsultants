@@ -6,6 +6,9 @@ import tailwindcss from '@tailwindcss/vite';
 import vercel from '@astrojs/vercel';
 
 
+import react from '@astrojs/react';
+
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://thinkglobalconsultants.com",
@@ -15,7 +18,7 @@ export default defineConfig({
 
   vite: {
     plugins: [tailwindcss()]
-  }
+  },
 
+  integrations: [react()]
 });
-
