@@ -25,8 +25,8 @@ export const server = {
 
       //Send email logic here
       const { data, error } = await resend.emails.send({
-        from: "Acme <onboarding@resend.dev>",
-        to: ["delivered@resend.dev"],
+        from: import.meta.env.RESEND_EMAIL_FROM,
+        to: import.meta.env.RESEND_EMAIL_TO,
         subject: "New contact form submission",
         html,
         text,

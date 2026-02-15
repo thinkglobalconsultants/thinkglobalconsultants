@@ -13,7 +13,7 @@ import { isInputError } from "astro:actions";
 const result = Astro.getActionResult(actions.send);
 
 if (result?.data) {
-  return Astro.redirect("/")
+  return Astro.redirect("/thank-you")
 }
 
 const inputError = isInputError(result?.error) ? result.error.fields : {}
