@@ -22,7 +22,7 @@ const { title, content } = await getPostInfo(slug);
         {title}
       </h1>
       <div
-        class="text-gray-700 [&_p]:mb-4 [&_p:last-child]:mb-0 [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6"
+        class="text-gray-700 [&_h2]:text-3xl [&_p]:mb-4 [&_p:last-child]:mb-0 [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6"
         set:html={content}
       />
     </div>
