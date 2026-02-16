@@ -7,7 +7,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://thinkglobalconsultants.vercel.app",
+  site: import.meta.env.SITE_URL,
   base: "/",
   output: 'server',
   adapter: vercel(),
