@@ -1,5 +1,0 @@
-import { c as createSvgComponent } from './runtime_BqRG28uq.mjs';
-
-const School = createSvgComponent({"meta":{"src":"/_astro/school-white.Zg8_pUDB.svg","width":800,"height":800,"format":"svg"},"attributes":{"width":"800px","height":"800px","viewBox":"0 0 24 24","fill":"none","stroke":"#ffffff"},"children":"\n\r<g id=\"SVGRepo_bgCarrier\" stroke-width=\"0\" />\n\r<g id=\"SVGRepo_tracerCarrier\" stroke-linecap=\"round\" stroke-linejoin=\"round\" />\n\r<g id=\"SVGRepo_iconCarrier\"> <path d=\"M21 10L12 5L3 10L6 11.6667M21 10L18 11.6667M21 10V10C21.6129 10.3064 22 10.9328 22 11.618V16.9998M6 11.6667L12 15L18 11.6667M6 11.6667V17.6667L12 21L18 17.6667L18 11.6667\" stroke=\"#ffffff\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /> </g>\n\r"});
-
-export { School as S };
