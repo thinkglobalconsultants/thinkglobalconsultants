@@ -18,7 +18,8 @@ const isActivePrefix = (url: string) => {
 // Dropdown actives
 const servicesActive = 
 isActivePrefix("/our-services/prism")||
-isActivePrefix("/our-services/cq-for-organization");
+isActivePrefix("/our-services/cq-for-organization")||
+isActivePrefix("/our-services/cq-assessment");
 
 const customersActive =
   isActivePrefix("/our-customers/business-global-organization") ||
@@ -154,6 +155,18 @@ const customersActive =
                 @click="ddOpen = false"
               >
                 CQ for School
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="/our-services/cq-assessment"
+                class={`block rounded-lg px-3 py-2 text-sm hover:bg-gray-50 ${
+                  isActivePrefix("/our-services/cq-assessment") ? "font-semibold text-brand-green" : "text-gray-700"
+                }`}
+                @click="ddOpen = false"
+              >
+                CQ Assessment
               </a>
             </li>
           </ul>
@@ -328,7 +341,7 @@ const customersActive =
               href="/our-services/prism"
               @click="open = false"
               class={`block rounded-lg px-3 py-2 text-lg font-semibold hover:bg-gray-50 ${
-                isActivePrefix("/our-services/prism-cq-for-school") ? "text-brand-green" : "text-gray-700"
+                isActivePrefix("/our-services/prism") ? "text-brand-green" : "text-gray-700"
               }`}
             >
               PRISM
@@ -340,10 +353,22 @@ const customersActive =
               href="/our-services/cq-for-school"
               @click="open = false"
               class={`block rounded-lg px-3 py-2 text-lg font-semibold hover:bg-gray-50 ${
-                isActivePrefix("/our-services/prism-cq-for-school") ? "text-brand-green" : "text-gray-700"
+                isActivePrefix("/our-services/cq-for-school") ? "text-brand-green" : "text-gray-700"
               }`}
             >
               CQ for School
+            </a>
+          </div>
+
+           <div x-show="ddOpen" x-transition class="mt-2 space-y-2 pb-3">
+            <a
+              href="/our-services/cq-assessment"
+              @click="open = false"
+              class={`block rounded-lg px-3 py-2 text-lg font-semibold hover:bg-gray-50 ${
+                isActivePrefix("/our-services/cq-assessment") ? "text-brand-green" : "text-gray-700"
+              }`}
+            >
+              CQ Assessment
             </a>
           </div>
         </div>
@@ -381,7 +406,7 @@ const customersActive =
                 isActivePrefix("/our-customers/business-global-organization") ? "text-brand-green" : "text-gray-700"
               }`}
             >
-              Business/ Global Organization
+              Business/Global Organization
             </a>
 
             <a
@@ -401,7 +426,7 @@ const customersActive =
                 isActivePrefix("/our-customers/ngos-nonprofit") ? "text-brand-green" : "text-gray-700"
               }`}
             >
-              NGOs/ NonProfit
+              NGOs/NonProfit
             </a>
           </div>
         </div>
