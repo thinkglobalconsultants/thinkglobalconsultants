@@ -1,5 +1,5 @@
 ---
-const {title, paragraph, button1, button2} = Astro.props;
+const {title, paragraph, button1} = Astro.props;
 ---
 
 <div class="relative overflow-hidden bg-gray-50">
@@ -22,19 +22,10 @@ const {title, paragraph, button1, button2} = Astro.props;
       <div class="mx-auto mt-5 max-w-md sm:flex sm:justify-center md:mt-8">
         <div class="rounded-md shadow-sm">
           <a
-            href="/our-services/prism"
+            href="/contact#schedule-meeting"
             class="flex w-full items-center justify-center rounded-md border border-transparent bg-[#014650] px-8 py-3 text-base font-medium text-white hover:opacity-90 md:px-10 md:py-4 md:text-lg"
           >
             {button1}
-          </a>
-        </div>
-
-        <div class="mt-3 rounded-md shadow-sm sm:ml-3 sm:mt-0">
-          <a
-            href="/contact#schedule-meeting"
-            class="flex w-full items-center justify-center rounded-md border border-transparent bg-gray-600 px-8 py-3 text-base font-medium text-white hover:bg-gray-700 md:px-10 md:py-4 md:text-lg"
-          >
-            {button2}
           </a>
         </div>
       </div>
