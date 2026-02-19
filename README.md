@@ -1,46 +1,71 @@
-# Astro Starter Kit: Basics
+This project is private and proprietary.
+Unauthorized copying, distribution, modification, or use of this code, in whole or in part, is strictly prohibited unless explicitly authorized in writing by the project owner.
 
-```sh
-npm create astro@latest -- --template basics
-```
+# Think Global Consultants — Website
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Official website for **Think Global Consultants**, focused on global leadership and **Cultural Intelligence (CQ)** to reduce cross-cultural friction, align teams, and drive measurable outcomes.
 
-## 🚀 Project Structure
+**Title / Tagline:** *Lead with Confidence Across Cultures*  
+**Live site:** https://thinkglobalconsultants.vercel.app/
 
-Inside of your Astro project, you'll see the following folders and files:
+---
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+## 🎯 Website Purpose
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+- Present the firm’s approach to helping **leadership teams** operate effectively in multicultural environments.
+- Explain and promote core offerings (PRISM, CQ for Schools, CQ Assessment).
+- Publish educational content via the **Insights** hub (articles and CQ leadership topics).
+- Capture leads through the **Contact** form and “Request Consultation” calls-to-action.
 
-## 🧞 Commands
+---
 
-All commands are run from the root of the project, from a terminal:
+## 🧩 Services / Solutions
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+- **PRISM**: A leadership consulting service to align teams and reduce cultural friction through assessments, an improvement plan, and coaching.
+- **CQ for Schools**: A program for international schools (pilot + annual scaling) to strengthen multicultural collaboration among leadership, faculty, families, and staff.
+- **CQ Assessment**: CQ evaluation plus workshops (individual CQ, team CQ, unconscious bias) with follow-up and coaching.
 
-## 👀 Want to learn more?
+---
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## 🗺️ Main Site Sections
+
+- **Home**: value proposition and primary CTA.
+- **About Us**: background, approach, and team.
+- **Our Services**: PRISM / CQ for Schools / CQ Assessment.
+- **Our Customers**: Business/Global Organization, International School, NGOs/Non-Profit.
+- **Insights**: articles and learning resources.
+- **Contact**: form and contact channels.
+
+---
+
+## 🧑‍🤝‍🧑 Team
+
+- **Zach Dorroh** — Co-Founder / CEO (Texas, USA)  
+- **Callie Dorroh** — Consultant (Texas, USA)  
+- **Lindsey Rush** — Operations Director (Texas, USA)  
+- **Andrew Korkosc** — Consultant (Texas, USA)  
+- **Daniel Wallace** — Consultant (Texas, USA)
+
+---
+
+## 🛠️ Tech Stack
+
+- **Framework**: Astro
+- **Hosting / Deployment**: Vercel
+
+> This README reflects what’s observable from the deployed site. If your repository includes additional integrations (Tailwind, CMS, analytics, etc.), document them here.
+
+---
+
+## 🚀 Local Development
+
+> Typical requirements: Node.js 18+ (or the version specified by your repo).
+
+
+---
+## Site Developed
+
+- **Built by:** Allan Mendoza
+- **Github:** https://github.com/AMendoza180890
+
+
