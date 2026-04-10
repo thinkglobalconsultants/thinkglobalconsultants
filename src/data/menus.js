@@ -37,7 +37,7 @@ export const menuMain = [
     },
     {
         name: "Request Consultation",
-        url: "/contact#schedule-meeting",
+        url: "/contact",
         highlighted: true,
     },
 ];
