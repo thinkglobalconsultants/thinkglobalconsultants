@@ -20,7 +20,7 @@ const {
       sublabel: "Heads, principals, board",
       title: "Aligned vision, sharper decisions",
       body:
-        "School leaders navigating a multicultural community need more than good intentions — they need a shared framework for understanding how culture shapes priorities, communication, and expectations across the board.",
+        "School leaders navigating a multicultural community need more than good intentions — they need a shared framework for understanding how culture shapes priorities, communication, and expectations.",
     },
     {
       id: "teachers",
@@ -78,6 +78,7 @@ import Parents from '~/assets/Icons/parent.svg';
   <div
     class="mt-10 overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm"
     data-vertical-tabs
+    id="vertical-tabs-root"
   >
     <div class="grid grid-cols-1 md:grid-cols-2">
       <!-- Left: Tabs -->
@@ -157,9 +158,9 @@ import Parents from '~/assets/Icons/parent.svg';
   }
 </style>
 
-<script is:inline>
+<script>
   (() => {
-    const root = document.currentScript?.previousElementSibling?.querySelector?.("[data-vertical-tabs]");
+    const root = document.getElementById("vertical-tabs-root");
     if (!root) return;
 
     const tabs = Array.from(root.querySelectorAll("[data-tab]"));
