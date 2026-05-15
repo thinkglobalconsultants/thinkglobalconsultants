@@ -10,7 +10,9 @@ export default defineConfig({
   site: import.meta.env.SITE_URL,
   base: "/",
   output: 'server',
-  adapter: vercel(),
+  adapter: vercel({
+    imageService: true,
+  }),
 
   vite: {
     plugins: [tailwindcss()]
