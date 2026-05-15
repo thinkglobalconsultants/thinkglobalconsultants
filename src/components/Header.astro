@@ -29,15 +29,15 @@ const customersActive =
 
 <header x-data="{ open: false }" @keydown.window.escape="open = false">
   <div class="fixed inset-x-0 top-0 z-50 h-24 bg-white shadow-sm">
-    <nav class="flex items-center justify-between" aria-label="Global">
+    <nav class="flex h-24 items-center justify-between px-6 lg:px-12" aria-label="Global">
       <!-- LOGO -->
-      <a href="/" class="fixed left-5 top-2 z-60 -m-1.5 flex items-center p-1.5 lg:fixed lg:left-15 2xl:left-5 lg:top-2 lg:z-60 lg:-m-1.5 lg:flex lg:items-center lg:p-1.5  ">
+      <a href="/" class="-m-1.5 flex shrink-0 items-center p-1.5">
         <Image src={logoImagen} class="h-20 w-auto" alt="Think Global Consultants Logo" />
       </a>
 
       <!-- Toggle mobile -->
       <button
-        class="fixed right-6 top-6 z-60 flex size-10 items-center justify-center lg:hidden"
+        class="z-60 flex size-10 items-center justify-center lg:hidden"
         @click="open = !open"
         aria-label="Toggle menu"
       >
@@ -70,7 +70,7 @@ const customersActive =
       </button>
 
       <!-- MENÚ DESKTOP -->
-      <div class="absolute inset-x-0 top-0 hidden h-24 items-center justify-center gap-x-12 lg:flex">
+      <div class="hidden items-center gap-x-8 xl:gap-x-12 lg:flex">
         <!-- Index -->
         <a
           href="/"
@@ -81,14 +81,14 @@ const customersActive =
           Home
         </a>
 
-        <!-- About us -->
+        <!-- About Us -->
         <a
           href="/about-us"
           class={`transition font-semibold ${
             isActive("/about-us") ? "menu-item-active text-brand-green" : "text-gray-700 hover:text-brand-green"
           }`}
         >
-          About us
+          About Us
         </a>
 
         <!-- Our Services (dropdown) -->
@@ -308,7 +308,7 @@ const customersActive =
             isActive("/about-us") ? "text-brand-green menu-item-active" : "text-gray-700 hover:text-brand-green"
           }`}
         >
-          About us
+          About Us
         </a>
 
         <!-- Our Services (mobile dropdown) -->
